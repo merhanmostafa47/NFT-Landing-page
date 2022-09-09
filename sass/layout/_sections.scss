@@ -1,0 +1,39 @@
+@use '../base/typography'as *;
+@use '../abstracts/variables'as *;
+@use '../abstracts/mixins'as *;
+@use '../base/components'as *;
+
+/*Start landing section*/
+.landing {
+    block-size: calc(100vh - 4.5rem);
+
+    .landing__icons {
+        @include flex(center, center, row);
+
+        .icon-container {
+            @include size(1.5rem, 1.5rem);
+            margin-inline: 2rem;
+            position: relative;
+
+            &:not(:last-of-type)::before {
+                content: '';
+                position: absolute;
+                @include size(0.6875rem, 2px);
+                right: -2.1875rem;
+                left: 3.125rem;
+                top: 50%;
+                background: #ddd;
+                z-index: 155;
+            }
+
+            img.icon {
+                max-inline-size: 100%;
+            }
+
+        }
+
+    }
+
+}
+
+/*End landing section*/

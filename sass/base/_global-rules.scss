@@ -1,0 +1,65 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*::first-letter {
+    text-transform: capitalize;
+}
+
+*::selection {
+    background-color: $main-color;
+    color: $white;
+}
+
+html {
+    scroll-behavior: smooth;
+    position: relative;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    inline-size: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: $purple;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $main-color;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: $orange;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    @include reset-list;
+}
+
+.container {
+    @include size(100%, 100%);
+    max-inline-size: 100%;
+    @include padding(1rem, 5rem, 1rem, 5rem);
+    margin-inline: auto;
+    position: relative;
+
+    @include breakpoints(small) {
+        @include padding(1rem, 1.5rem, 1rem, 1.5rem);
+    }
+}
+
+section {
+    margin-block: 3rem;
+    position: relative;
+}

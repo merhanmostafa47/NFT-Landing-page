@@ -1,0 +1,25 @@
+@font-face {
+    font-family: 'Chillax';
+    src: url(/Fonts/Chillax-Regular.otf);
+}
+
+@font-face {
+    font-family: 'Cabine Grotesk';
+    src: url(/Fonts/CabinetGrotesk-Regular.otf);
+}
+
+@font-face {
+    font-family: 'MazzardH';
+    src: url(/Fonts/MazzardH-Black.otf);
+}
+
+@font-face {
+    font-family: 'tt Fors';
+    src: url(/Fonts/tt_fors_regular.otf);
+}
+
+
+$chillax_font: 'Chillax';
+$cabine_font: 'Cabine Grotesk';
+$mazzard_font: 'MazzardH';
+$tt-fors_font: 'tt Fors';

@@ -1,0 +1,114 @@
+@use 'variables'as *;
+@use '../base/typography' as *;
+
+@mixin reset-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+// flex
+@mixin flex($justify, $align, $direction) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    flex-direction: $direction;
+}
+
+// grid
+@mixin grid($columns, $column-gap, $row-gap) {
+    display: grid;
+    grid-template-columns: $columns;
+    column-gap: $column-gap;
+    row-gap: $row-gap;
+}
+
+// size
+@mixin size($inline, $block) {
+    inline-size: $inline;
+    block-size: $block;
+}
+
+// property in rtl
+@mixin rtl($property, $ltr-value, $rtl-value) {
+    #{$property}: $ltr-value;
+
+    [dir=rtl] & {
+        #{$property}: $rtl-value;
+    }
+}
+
+//font
+@mixin font($family, $weight, $size, $color) {
+    font-family: $family;
+    font-weight: $weight;
+    font-size: $size;
+    color: $color;
+}
+
+// background
+@mixin background($url, $size, $repeat) {
+    background: $url;
+    background-size: $size;
+    background-repeat: $repeat;
+}
+
+// middle
+@mixin middle() {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+// absolute
+@mixin absolute($top, $end, $bottom, $start) {
+    content: '';
+    position: absolute;
+    inset-block-start: $top;
+    inset-inline-end: $end;
+    inset-block-end: $bottom;
+    inset-inline-start: $start;
+}
+
+// padding
+@mixin padding($top, $end, $bottom, $start) {
+    padding-top: $top;
+    padding-inline-end: $end;
+    padding-block-end: $bottom;
+    padding-inline-start: $start;
+}
+
+// margin
+@mixin margin($top, $end, $bottom, $start) {
+    margin-top: $top;
+    margin-inline-end: $end;
+    margin-block-end: $bottom;
+    margin-inline-start: $start;
+}
+
+// transition
+@mixin transition($property, $time) {
+    -webkit-transition: $property $time + s;
+    -o-transition: $property $time + s;
+    transition: $property $time + s
+}
+
+// media queries
+@mixin breakpoints($point) {
+    @if $point==small {
+        @media (max-width:991px) {
+            @content;
+        }
+    }
+
+    @else if $point==large {
+        @media (min-width:991px) {
+            @content;
+        }
+    }
+}
+
+
+// components

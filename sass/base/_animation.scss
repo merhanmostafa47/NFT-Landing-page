@@ -1,0 +1,43 @@
+@use 'typography'as *;
+@use '../abstracts/variables'as *;
+@use '../abstracts/mixins'as *;
+
+@mixin btn-animation {
+
+    &::before,
+    &::after {
+        border-radius: 100%;
+        z-index: -5;
+    }
+
+    &::before {
+        transition: 1.6s;
+        @include size(3.125rem, 3.125rem);
+        @include absolute(unset, unset, -3.125rem, -3.125rem);
+        background-color: rgba(255, 255, 255, .5);
+    }
+
+    &::after {
+        transition: 2s;
+        @include size(1.25rem, 1.25rem);
+        @include absolute(-1.25rem, unset, unset, -1.125rem);
+        inset-block-start: -1.25rem;
+        inset-inline-start: -1.25rem;
+        background-color: $orange;
+    }
+
+    &:hover {
+        box-shadow: 0 5px 12px rgba(255, 112, 81, .5);
+
+        &:hover::before {
+            inset-block-end: 0px;
+            @include size(25rem, 25rem);
+        }
+
+        &:hover::after {
+            inset-block-start: -9.375rem;
+            @include size(18.75rem, 18.75rem);
+        }
+
+    }
+}

@@ -1,0 +1,40 @@
+@use 'typography'as *;
+@use '../abstracts/variables'as *;
+
+@mixin btn($fs, $fw) {
+    width: fit-content;
+    background-color: $main-color;
+    color: $white;
+    border-radius: 6px;
+
+    font: {
+        family: $mazzard_font;
+        size: $fs;
+        weight: $fw;
+    }
+}
+
+@mixin title {
+    color: $font-color;
+
+    font: {
+        family: $chillax_font;
+        size: 4.375rem;
+        weight: 700;
+    }
+
+}
+
+@mixin badge($bg) {
+    width: fit-content;
+    text-transform: uppercase;
+    background-color: $bg;
+    border-radius: 0.4375rem;
+    padding: 0.375rem 1rem;
+
+    font: {
+        family: $mazzard_font;
+        size: 0.875rem;
+        weight: 400;
+    }
+}

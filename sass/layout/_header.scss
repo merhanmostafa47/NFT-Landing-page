@@ -1,0 +1,134 @@
+@use '../base/typography'as *;
+@use '../abstracts/variables'as *;
+@use '../abstracts/mixins'as *;
+@use '../base/components'as *;
+@use '../base/animation'as *;
+
+header {
+    background-color: $white;
+    box-shadow: 0 5px 15px rgba(85, 82, 255, .1);
+    @include size(100%, 4.5rem);
+    position: relative;
+    z-index: 99;
+
+    .container {
+        @include flex(space-between, center, row);
+
+        .nav-expanded {
+            @include flex(space-between, center, row);
+
+            @include breakpoints(small) {
+                inline-size: 100%;
+            }
+
+            .logo {
+                inline-size: 5%;
+                margin-inline-end: 2rem;
+            }
+
+            .nav-icons {
+                i {
+                    @include font("Font Awesome 6 Free", 700, 1.25rem, $main-color);
+
+
+                    @include breakpoints(small) {
+                        &.close-btn {
+                            display: none;
+                        }
+                    }
+                }
+
+                @include breakpoints(small) {
+                    display: flex;
+                    justify-content: flex-end;
+                }
+
+                @include breakpoints(large) {
+                    display: none;
+                }
+
+            }
+
+        }
+
+        .main-nav {
+            inline-size: 93%;
+
+            @include flex(space-between, center, row);
+            @include transition(all, .3);
+
+            .main-nav__list {
+                @include flex(flex-start, center, row);
+                margin-inline: 1rem;
+                @include transition(all, .3);
+
+                .main-nav__item {
+                    margin-inline: 1.5rem;
+
+                    .main-nav__link {
+                        @include font($cabine_font, 700, 1.125rem, $font-color);
+                        @include transition(all, .3);
+                        text-transform: capitalize;
+
+                        &:hover {
+                            color: $main-color;
+
+                            @include breakpoints(small) {
+                                padding-inline-start: 10px;
+
+                            }
+                        }
+                    }
+
+                    @include breakpoints(small) {
+                        margin-inline: 0 !important;
+                        margin-block: 1rem;
+                    }
+                }
+
+                @include breakpoints(small) {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    @include absolute(0, 0, 0, 0);
+                    @include margin(0, 1.5rem, 2rem, 1.5rem);
+                    @include size(100%, fit-content);
+                }
+
+            }
+
+            .login-btn {
+                @include btn(1rem, 400);
+                @include padding(0.625rem, 2.5938rem, 0.625rem, 2.5938rem);
+                border: none;
+                cursor: pointer;
+                overflow: hidden;
+                min-inline-size: 10rem;
+                position: relative;
+                z-index: 1;
+
+                .btn-text {
+                    z-index: 5;
+                }
+
+                @include btn-animation;
+
+                @include breakpoints(small) {
+                    inline-size: 14rem;
+                }
+            }
+
+            @include breakpoints(small) {
+                display: none;
+                flex-direction: column-reverse;
+                @include absolute(4.5rem, 0, 0, 0);
+                @include size(100%, fit-content);
+                background-color: $white;
+                block-size: 23rem;
+                min-block-size: 20rem;
+                padding-block: 2rem;
+            }
+
+        }
+    }
+}
