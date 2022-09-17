@@ -6,10 +6,10 @@
 
 header {
     background-color: $white;
-    box-shadow: 0 5px 15px rgba(85, 82, 255, .1);
+    box-shadow: 0 5px 15px rgba(85, 82, 255, 0.102);
     @include size(100%, 4.5rem);
     position: relative;
-    z-index: 99;
+    z-index: 999;
 
     .container {
         @include flex(space-between, center, row);
@@ -28,7 +28,7 @@ header {
 
             .nav-icons {
                 i {
-                    @include font("Font Awesome 6 Free", 700, 1.25rem, $main-color);
+                    @include font("Font Awesome 6 Free", 700, 1.5rem, $main-color);
 
 
                     @include breakpoints(small) {

@@ -2,10 +2,20 @@
 @use '../abstracts/variables'as *;
 @use '../abstracts/mixins'as *;
 @use '../base/components'as *;
+@use '../base/animation'as *;
 
 /*Start landing section*/
 .landing {
     block-size: calc(100vh - 4.5rem);
+    position: relative;
+
+    &::after {
+        @include absolute(0, 0, unset, 0);
+        @include background(url(/images/landing_bg.png), cover, no-repeat);
+        @include size(100vw, 100vh);
+        background-position: top center;
+        z-index: -50;
+    }
 
     .landing__icons {
         @include flex(center, center, row);
@@ -34,6 +44,172 @@
 
     }
 
+    .landing__title {
+        @include title;
+        text-align: center;
+        margin-block: 1.875rem;
+
+        .title__different {
+            color: $main-color;
+        }
+    }
+
+    .landing__image {
+        margin: 2rem auto;
+        display: flex;
+        position: relative;
+        z-index: -10;
+        transform-style: preserve-3d;
+
+        @include breakpoints(small) {
+            margin: 1rem;
+        }
+
+        img {
+            @include breakpoints(small) {
+                display: none;
+            }
+        }
+
+        &::after,
+        &::before {
+            position: absolute;
+            content: "";
+            object-fit: contain;
+            animation: translate-sphere 5s linear infinite;
+        }
+
+        &::after {
+            @include size(7rem, 7rem);
+            @include background(url(/images/landing_sphere1.png), contain, no-repeat);
+            inset-block-start: -40px;
+            inset-inline-start: 28%;
+
+            @include breakpoints(small) {
+                inset-block-start: -250px;
+                inset-inline-start: -75px;
+            }
+        }
+
+        &::before {
+            @include size(4rem, 4rem);
+            @include background(url(/images/landing_sphere2.png), contain, no-repeat);
+            inset-block-end: 100px;
+            inset-inline-end: 18%;
+
+            @include breakpoints(small) {
+                inset-block-end: 0px;
+                inset-inline-end: -40px;
+            }
+        }
+
+        img {
+            max-inline-size: 100%;
+            object-fit: contain;
+        }
+
+    }
+
+    .landing__cards {
+        @include flex(space-between, flex-start, row);
+
+
+        &.cards-group1 {
+            transform: translateY(120px);
+
+            .landing__card {
+                @include flex(center, center, row);
+                @include small-card(2rem, $white);
+                margin: 0;
+
+                .card__body {
+                    margin-inline: 1.5rem;
+                    line-height: 1.5;
+                    text-transform: capitalize;
+
+                    .card__tite {
+                        font: {
+                            weight: 600;
+                            size: 1rem;
+                        }
+
+                        color: $dark-grey;
+                    }
+
+                    .card__copy {
+                        font: {
+                            weight: 400;
+                            size: 1rem;
+                        }
+
+                        color: $dark-grey;
+                    }
+                }
+            }
+
+            @include breakpoints(small) {
+                flex-direction: column;
+                transform: translateY(0);
+                position: inherit;
+                z-index: 55;
+
+                .landing__card:nth-last-of-type(1) {
+                    align-self: flex-end;
+                    margin-block-start: 1.5rem;
+                }
+            }
+        }
+
+        &.cards-group2 {
+            transform: translateY(-130px);
+
+            .landing__copy {
+                max-inline-size: 22rem;
+                line-height: 1.6;
+                @include font($mazzard_font, 400, 1.125rem, rgba(0, 0, 0, 0.4));
+
+                @include breakpoints(small) {
+                    max-inline-size: 100%;
+                    font-size: 1rem;
+                    text-align: center
+                }
+            }
+
+            .landing__btn {
+                @include btn(1rem, 400);
+                @include padding(0.625rem, 2.5938rem, 0.625rem, 2.5938rem);
+                border: none;
+                cursor: pointer;
+                overflow: hidden;
+                min-inline-size: 10rem;
+                position: relative;
+                inset-inline-end: 6rem;
+                z-index: 1;
+
+                .btn-text {
+                    z-index: 5;
+                }
+
+                @include btn-animation;
+
+                @include breakpoints(small) {
+                    inline-size: 14rem;
+                    margin: 1rem auto;
+                    inset-inline-end: 0;
+                }
+
+            }
+
+            @include breakpoints(small) {
+                flex-direction: column;
+                transform: translateY(0);
+            }
+        }
+
+        @include breakpoints(small) {
+            flex-direction: column-reverse;
+        }
+    }
 }
 
 /*End landing section*/

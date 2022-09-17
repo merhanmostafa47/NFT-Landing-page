@@ -1,18 +1,18 @@
 @font-face {
   font-family: "Chillax";
-  src: url(/Fonts/Chillax-Regular.otf);
+  src: url(/fonts/Chillax-Regular.otf);
 }
 @font-face {
   font-family: "Cabine Grotesk";
-  src: url(/Fonts/CabinetGrotesk-Regular.otf);
+  src: url(/fonts/CabinetGrotesk-Regular.otf);
 }
 @font-face {
   font-family: "MazzardH";
-  src: url(/Fonts/MazzardH-Black.otf);
+  src: url(/fonts/MazzardH-Regular.otf);
 }
 @font-face {
   font-family: "tt Fors";
-  src: url(/Fonts/tt_fors_regular.otf);
+  src: url(/fonts/tt_fors_regular.otf);
 }
 * {
   margin: 0;
@@ -99,6 +99,27 @@ section {
   position: relative;
 }
 
+@-webkit-keyframes translate-sphere {
+  0% {
+    -webkit-transform: translateY(15px);
+            transform: translateY(15px);
+  }
+  100% {
+    -webkit-transform: translateY(-15px);
+            transform: translateY(-15px);
+  }
+}
+
+@keyframes translate-sphere {
+  0% {
+    -webkit-transform: translateY(15px);
+            transform: translateY(15px);
+  }
+  100% {
+    -webkit-transform: translateY(-15px);
+            transform: translateY(-15px);
+  }
+}
 .bg-design {
   display: -ms-grid;
   display: grid;
@@ -129,12 +150,12 @@ section {
 
 header {
   background-color: #fff;
-  -webkit-box-shadow: 0 5px 15px rgba(85, 82, 255, 0.1);
-          box-shadow: 0 5px 15px rgba(85, 82, 255, 0.1);
+  -webkit-box-shadow: 0 5px 15px rgba(85, 82, 255, 0.102);
+          box-shadow: 0 5px 15px rgba(85, 82, 255, 0.102);
   inline-size: 100%;
   block-size: 4.5rem;
   position: relative;
-  z-index: 99;
+  z-index: 999;
 }
 header .container {
   display: -webkit-box;
@@ -179,7 +200,7 @@ header .container .nav-expanded .logo {
 header .container .nav-expanded .nav-icons i {
   font-family: "Font Awesome 6 Free";
   font-weight: 700;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   color: rgb(85, 82, 255);
 }
 @media (max-width: 991px) {
@@ -245,7 +266,7 @@ header .container .main-nav .main-nav__list .main-nav__item .main-nav__link {
   font-family: "Cabine Grotesk";
   font-weight: 700;
   font-size: 1.125rem;
-  color: #162639;
+  color: #1E344F;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   text-transform: capitalize;
@@ -401,6 +422,22 @@ header .container .main-nav .login-btn:hover:hover::after {
 /*Start landing section*/
 .landing {
   block-size: calc(100vh - 4.5rem);
+  position: relative;
+}
+.landing::after {
+  content: "";
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  inset-block-end: unset;
+  inset-inline-start: 0;
+  background: url(/images/landing_bg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  inline-size: 100vw;
+  block-size: 100vh;
+  background-position: top center;
+  z-index: -50;
 }
 .landing .landing__icons {
   display: -webkit-box;
@@ -436,6 +473,294 @@ header .container .main-nav .login-btn:hover:hover::after {
 }
 .landing .landing__icons .icon-container img.icon {
   max-inline-size: 100%;
+}
+.landing .landing__title {
+  color: #1E344F;
+  font-family: "Chillax";
+  font-size: 3.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-block: 1.875rem;
+}
+@media (max-width: 991px) {
+  .landing .landing__title {
+    font-size: 2.5rem;
+  }
+}
+.landing .landing__title .title__different {
+  color: rgb(85, 82, 255);
+}
+.landing .landing__image {
+  margin: 2rem auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  z-index: -10;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+@media (max-width: 991px) {
+  .landing .landing__image {
+    margin: 1rem;
+  }
+}
+@media (max-width: 991px) {
+  .landing .landing__image img {
+    display: none;
+  }
+}
+.landing .landing__image::after, .landing .landing__image::before {
+  position: absolute;
+  content: "";
+  -o-object-fit: contain;
+     object-fit: contain;
+  -webkit-animation: translate-sphere 5s linear infinite;
+          animation: translate-sphere 5s linear infinite;
+}
+.landing .landing__image::after {
+  inline-size: 7rem;
+  block-size: 7rem;
+  background: url(/images/landing_sphere1.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  inset-block-start: -40px;
+  inset-inline-start: 28%;
+}
+@media (max-width: 991px) {
+  .landing .landing__image::after {
+    inset-block-start: -250px;
+    inset-inline-start: -75px;
+  }
+}
+.landing .landing__image::before {
+  inline-size: 4rem;
+  block-size: 4rem;
+  background: url(/images/landing_sphere2.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  inset-block-end: 100px;
+  inset-inline-end: 18%;
+}
+@media (max-width: 991px) {
+  .landing .landing__image::before {
+    inset-block-end: 0px;
+    inset-inline-end: -40px;
+  }
+}
+.landing .landing__image img {
+  max-inline-size: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.landing .landing__cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+.landing .landing__cards.cards-group1 {
+  -webkit-transform: translateY(120px);
+          transform: translateY(120px);
+}
+.landing .landing__cards.cards-group1 .landing__card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  font-family: "MazzardH";
+  border-radius: 2rem;
+  background-color: #fff;
+  -webkit-box-shadow: 0 4px 4px 0 rgba(30, 52, 79, 0.1);
+          box-shadow: 0 4px 4px 0 rgba(30, 52, 79, 0.1);
+  padding-top: 20px;
+  -webkit-padding-end: 30px;
+          padding-inline-end: 30px;
+  -webkit-padding-after: 20px;
+          padding-block-end: 20px;
+  -webkit-padding-start: 30px;
+          padding-inline-start: 30px;
+  margin: 0;
+}
+@media (max-width: 991px) {
+  .landing .landing__cards.cards-group1 .landing__card {
+    padding-top: 10px;
+    -webkit-padding-end: 15px;
+            padding-inline-end: 15px;
+    -webkit-padding-after: 10px;
+            padding-block-end: 10px;
+    -webkit-padding-start: 15px;
+            padding-inline-start: 15px;
+  }
+}
+.landing .landing__cards.cards-group1 .landing__card .card__body {
+  margin-inline: 1.5rem;
+  line-height: 1.5;
+  text-transform: capitalize;
+}
+.landing .landing__cards.cards-group1 .landing__card .card__body .card__tite {
+  font-weight: 600;
+  font-size: 1rem;
+  color: rgba(51, 68, 34, 0.9333333333);
+}
+.landing .landing__cards.cards-group1 .landing__card .card__body .card__copy {
+  font-weight: 400;
+  font-size: 1rem;
+  color: rgba(51, 68, 34, 0.9333333333);
+}
+@media (max-width: 991px) {
+  .landing .landing__cards.cards-group1 {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    position: inherit;
+    z-index: 55;
+  }
+  .landing .landing__cards.cards-group1 .landing__card:nth-last-of-type(1) {
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+    -webkit-margin-before: 1.5rem;
+            margin-block-start: 1.5rem;
+  }
+}
+.landing .landing__cards.cards-group2 {
+  -webkit-transform: translateY(-130px);
+          transform: translateY(-130px);
+}
+.landing .landing__cards.cards-group2 .landing__copy {
+  max-inline-size: 22rem;
+  line-height: 1.6;
+  font-family: "MazzardH";
+  font-weight: 400;
+  font-size: 1.125rem;
+  color: rgba(0, 0, 0, 0.4);
+}
+@media (max-width: 991px) {
+  .landing .landing__cards.cards-group2 .landing__copy {
+    max-inline-size: 100%;
+    font-size: 1rem;
+    text-align: center;
+  }
+}
+.landing .landing__cards.cards-group2 .landing__btn {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: rgb(85, 82, 255);
+  color: #fff;
+  border-radius: 6px;
+  font-family: "MazzardH";
+  font-size: 1rem;
+  font-weight: 400;
+  padding-top: 0.625rem;
+  -webkit-padding-end: 2.5938rem;
+          padding-inline-end: 2.5938rem;
+  -webkit-padding-after: 0.625rem;
+          padding-block-end: 0.625rem;
+  -webkit-padding-start: 2.5938rem;
+          padding-inline-start: 2.5938rem;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  min-inline-size: 10rem;
+  position: relative;
+  inset-inline-end: 6rem;
+  z-index: 1;
+}
+.landing .landing__cards.cards-group2 .landing__btn .btn-text {
+  z-index: 5;
+}
+.landing .landing__cards.cards-group2 .landing__btn::before, .landing .landing__cards.cards-group2 .landing__btn::after {
+  border-radius: 100%;
+  z-index: -5;
+}
+.landing .landing__cards.cards-group2 .landing__btn::before {
+  -webkit-transition: 1.6s;
+  transition: 1.6s;
+  inline-size: 3.125rem;
+  block-size: 3.125rem;
+  content: "";
+  position: absolute;
+  inset-block-start: unset;
+  inset-inline-end: unset;
+  inset-block-end: -3.125rem;
+  inset-inline-start: -3.125rem;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.landing .landing__cards.cards-group2 .landing__btn::after {
+  -webkit-transition: 2s;
+  transition: 2s;
+  inline-size: 1.25rem;
+  block-size: 1.25rem;
+  content: "";
+  position: absolute;
+  inset-block-start: -1.25rem;
+  inset-inline-end: unset;
+  inset-block-end: unset;
+  inset-inline-start: -1.125rem;
+  inset-block-start: -1.25rem;
+  inset-inline-start: -1.25rem;
+  background-color: #ff7051;
+}
+.landing .landing__cards.cards-group2 .landing__btn:hover {
+  -webkit-box-shadow: 0 5px 12px rgba(255, 112, 81, 0.5);
+          box-shadow: 0 5px 12px rgba(255, 112, 81, 0.5);
+}
+.landing .landing__cards.cards-group2 .landing__btn:hover:hover::before {
+  inset-block-end: 0px;
+  inline-size: 25rem;
+  block-size: 25rem;
+}
+.landing .landing__cards.cards-group2 .landing__btn:hover:hover::after {
+  inset-block-start: -9.375rem;
+  inline-size: 18.75rem;
+  block-size: 18.75rem;
+}
+@media (max-width: 991px) {
+  .landing .landing__cards.cards-group2 .landing__btn {
+    inline-size: 14rem;
+    margin: 1rem auto;
+    inset-inline-end: 0;
+  }
+}
+@media (max-width: 991px) {
+  .landing .landing__cards.cards-group2 {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+@media (max-width: 991px) {
+  .landing .landing__cards {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
 }
 
 /*End landing section*/

@@ -1,5 +1,6 @@
 @use 'typography'as *;
 @use '../abstracts/variables'as *;
+@use '../abstracts/mixins'as *;
 
 @mixin btn($fs, $fw) {
     width: fit-content;
@@ -19,10 +20,13 @@
 
     font: {
         family: $chillax_font;
-        size: 4.375rem;
+        size: 3.5rem;
         weight: 700;
     }
 
+    @include breakpoints(small) {
+        font-size: 2.5rem;
+    }
 }
 
 @mixin badge($bg) {
@@ -36,5 +40,17 @@
         family: $mazzard_font;
         size: 0.875rem;
         weight: 400;
+    }
+}
+
+@mixin small-card($radius, $bg-color) {
+    font-family: $mazzard_font;
+    border-radius: $radius;
+    background-color: $bg-color;
+    box-shadow: $box-shadow;
+    @include padding(20px, 30px, 20px, 30px);
+
+    @include breakpoints(small) {
+        @include padding(10px, 15px, 10px, 15px);
     }
 }

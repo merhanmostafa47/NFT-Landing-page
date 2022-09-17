@@ -1,5 +1,5 @@
 @use 'variables'as *;
-@use '../base/typography' as *;
+@use '../base/typography'as *;
 
 @mixin reset-list {
     margin: 0;
@@ -99,6 +99,12 @@
 @mixin breakpoints($point) {
     @if $point==small {
         @media (max-width:991px) {
+            @content;
+        }
+    }
+
+    @else if $point==medium {
+        @media (min-width:767px) and (max-width:991px) {
             @content;
         }
     }
