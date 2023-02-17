@@ -38,6 +38,14 @@
     }
 }
 
+// Maximum lines in paragraph
+@mixin lines($num) {
+    display: -webkit-box;
+    -webkit-line-clamp: $num;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
 //font
 @mixin font($family, $weight, $size, $color) {
     font-family: $family;
@@ -97,20 +105,51 @@
 
 // media queries
 @mixin breakpoints($point) {
-    @if $point==small {
+    @if $point==xs {
+        @media (max-width:575px) {
+            @content;
+        }
+    }
+
+    @else if $point==sm {
+        @media (max-width:767px) {
+            @content;
+        }
+    }
+
+    @else if $point==main {
+        @media (min-width:768px) {
+            @content;
+        }
+    }
+
+
+    @else if $point==md {
         @media (max-width:991px) {
             @content;
         }
     }
 
-    @else if $point==medium {
-        @media (min-width:767px) and (max-width:991px) {
+    @else if $point==lg {
+        @media (min-width:992px) and (max-width:1199px) {
             @content;
         }
     }
 
-    @else if $point==large {
-        @media (min-width:991px) {
+    @else if $point==xl {
+        @media (min-width:1200px) {
+            @content;
+        }
+    }
+
+    @else if $point==xxl {
+        @media (min-width:1400px) {
+            @content;
+        }
+    }
+
+    @else if $point==screen {
+        @media (max-width:1200px) {
             @content;
         }
     }
