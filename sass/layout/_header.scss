@@ -7,128 +7,208 @@
 header {
     background-color: $white;
     box-shadow: 0 5px 15px rgba(85, 82, 255, 0.102);
-    @include size(100%, 4.5rem);
+    @include size(100%, 4.8rem);
     position: relative;
+    overflow: hidden;
+    transition: all .5s ease;
     z-index: 999;
 
-    .container {
-        @include flex(space-between, center, row);
+    &.fixed {
+        position: fixed;
+        inset-block: 0;
+        inset-inline: 0;
+        background-color: $main-color;
 
         .nav-expanded {
-            @include flex(space-between, center, row);
-
-            @include breakpoints(small) {
-                inline-size: 100%;
+            @include breakpoints(md) {
+                .nav-menu {
+                    .burger-line {
+                        background-color: $white;
+                    }
+                }
             }
 
             .logo {
-                inline-size: 5%;
-                margin-inline-end: 2rem;
+                img {
+                    filter: brightness(0) saturate(100%) invert(99%) sepia(1%) saturate(2%) hue-rotate(247deg) brightness(111%) contrast(101%);
+                }
             }
-
-            .nav-icons {
-                i {
-                    @include font("Font Awesome 6 Free", 700, 1.5rem, $main-color);
-
-
-                    @include breakpoints(small) {
-                        &.close-btn {
-                            display: none;
-                        }
-                    }
-                }
-
-                @include breakpoints(small) {
-                    display: flex;
-                    justify-content: flex-end;
-                }
-
-                @include breakpoints(large) {
-                    display: none;
-                }
-
-            }
-
         }
 
         .main-nav {
-            inline-size: 93%;
-
-            @include flex(space-between, center, row);
-            @include transition(all, .3);
-
             .main-nav__list {
-                @include flex(flex-start, center, row);
-                margin-inline: 1rem;
-                @include transition(all, .3);
-
                 .main-nav__item {
-                    margin-inline: 1.5rem;
-
                     .main-nav__link {
-                        @include font($cabine_font, 700, 1.125rem, $font-color);
-                        @include transition(all, .3);
-                        text-transform: capitalize;
+                        color: $white;
 
                         &:hover {
-                            color: $main-color;
-
-                            @include breakpoints(small) {
-                                padding-inline-start: 10px;
-
-                            }
+                            color: $orange;
                         }
                     }
-
-                    @include breakpoints(small) {
-                        margin-inline: 0 !important;
-                        margin-block: 1rem;
-                    }
                 }
-
-                @include breakpoints(small) {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: flex-start;
-                    @include absolute(0, 0, 0, 0);
-                    @include margin(0, 1.5rem, 2rem, 1.5rem);
-                    @include size(100%, fit-content);
-                }
-
             }
 
             .login-btn {
-                @include btn(1rem, 400);
-                @include padding(0.625rem, 2.5938rem, 0.625rem, 2.5938rem);
-                border: none;
-                cursor: pointer;
-                overflow: hidden;
-                min-inline-size: 10rem;
-                position: relative;
-                z-index: 1;
+                background-color: $white;
+                color: $main-color;
 
-                .btn-text {
-                    z-index: 5;
-                }
-
-                @include btn-animation;
-
-                @include breakpoints(small) {
-                    inline-size: 14rem;
+                &:hover {
+                    .btn-text {
+                        color: $white;
+                    }
                 }
             }
 
-            @include breakpoints(small) {
-                display: none;
-                flex-direction: column-reverse;
-                @include absolute(4.5rem, 0, 0, 0);
-                @include size(100%, fit-content);
-                background-color: $white;
-                block-size: 23rem;
-                min-block-size: 20rem;
-                padding-block: 2rem;
+            @include breakpoints(md) {
+                background-color: $main-color;
+            }
+        }
+    }
+
+    @include breakpoints(md) {
+        block-size: 4rem;
+        position: absolute;
+        inset-block-start: 0;
+        transition: all .5s ease;
+
+        &.open {
+            block-size: 28rem;
+            overflow-y: none;
+
+            .nav-expanded {
+                @include breakpoints(md) {
+
+                    .nav-menu {
+                        .burger-line {
+                            &:nth-of-type(1) {
+                                transform: rotate(45deg);
+                            }
+
+                            &:nth-of-type(2) {
+                                display: none;
+                            }
+
+                            &:nth-of-type(3) {
+                                transform: translateY(-8px) rotate(-45deg);
+                            }
+                        }
+                    }
+                }
+
+                .logo {
+                    inline-size: 5%;
+                    margin-inline-end: 2rem;
+                }
+            }
+        }
+    }
+
+    .container {
+        @include flex(space-between, center, row);
+        padding-block: 1rem;
+
+        @include breakpoints(md) {
+            flex-direction: column;
+        }
+    }
+
+    .nav-expanded {
+        @include flex(space-between, center, row);
+
+        @include breakpoints(md) {
+            inline-size: 100%;
+
+            .nav-menu {
+                cursor: pointer;
+
+                .burger-line {
+                    display: block;
+                    background-color: $main-color;
+                    @include size(1.5rem, .1rem);
+                    border-radius: 1rem;
+                    position: relative;
+                    transition: all .5s ease;
+
+                    &:not(:last-of-type) {
+                        margin-block-end: .4rem;
+                    }
+                }
+            }
+        }
+
+        .logo {
+            inline-size: 5%;
+            margin-inline-end: 2rem;
+        }
+    }
+
+    .main-nav {
+        @include flex(space-between, center, row);
+        @include transition(all, .3);
+
+        .main-nav__list {
+            @include flex(flex-start, center, row);
+            margin-inline: 1rem;
+            @include transition(all, .3);
+
+            .main-nav__item {
+                margin-inline: 1.5rem;
+
+                .main-nav__link {
+                    @include font($cabine_font, 700, 1.125rem, $font-color);
+                    @include transition(all, .3);
+                    text-transform: capitalize;
+
+                    &:hover {
+                        color: $main-color;
+
+                        @include breakpoints(md) {
+                            padding-inline-start: 10px;
+                        }
+                    }
+                }
+
+                @include breakpoints(md) {
+                    margin: 1rem 0;
+                }
+            }
+
+            @include breakpoints(md) {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                @include size(100%, auto);
             }
 
         }
+
+        .login-btn {
+            @include btn(1rem, 400);
+            @include padding(0.625rem, 2rem, 0.625rem, 2rem);
+            cursor: pointer;
+            border: none;
+            overflow: hidden;
+            min-inline-size: 8rem;
+            position: relative;
+            z-index: 1;
+
+            .btn-text {
+                z-index: 5;
+            }
+
+            @include btn-animation;
+
+            @include breakpoints(md) {
+                inline-size: 10rem;
+            }
+        }
+
+        @include breakpoints(md) {
+            inline-size: 100%;
+            flex-direction: column;
+            background-color: $white;
+            padding-block: 2rem;
+        }
+
     }
 }

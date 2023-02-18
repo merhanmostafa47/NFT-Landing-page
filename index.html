@@ -1,117 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NFT Landing page</title>
-    <link rel="shortcut icon" href="images/logo.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="images/logo.svg" type="image/x-icon" />
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/main.css">
-</head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <!-- Bootstrap 5.0.2-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
 
-<body>
+  <body>
     <!-- Start background pattern -->
     <div class="bg-design">
-        <div class="bg-half left-half">
-            <img src="images/bg_left.png" alt="" width="50%">
-        </div>
-        <div class="bg-half right-half">
-            <img src="images/bg_right.png" alt="" width="50%">
-        </div>
+      <div class="bg-half left-half">
+        <img src="images/bg_left.png" alt="" width="50%" />
+      </div>
+      <div class="bg-half right-half">
+        <img src="images/bg_right.png" alt="" width="50%" />
+      </div>
     </div>
     <!-- End background pattern -->
 
     <!-- Start header -->
-    <header>
-        <div class="container">
-            <div class="nav-expanded">
-                <a href="index.html" class="logo">
-                    <img src="images/logo.svg" alt="NFT home page">
-                </a>
-                <div class="nav-icons">
-                    <i class="fa-solid fa-bars hamburger-btn"></i>
-                    <i class="fa-solid fa-xmark close-btn"></i>
-                </div>
-            </div>
-            <nav class="main-nav">
-                <ul class="main-nav__list" role="menubar">
-                    <li class="main-nav__item" role="menuitem"> <a href="" class="main-nav__link">about</a> </li>
-                    <li class="main-nav__item" role="menuitem"> <a href="" class="main-nav__link">project</a> </li>
-                    <li class="main-nav__item" role="menuitem"> <a href="" class="main-nav__link">marketplace</a> </li>
-                    <li class="main-nav__item" role="menuitem"> <a href="" class="main-nav__link">governance</a> </li>
-                    <li class="main-nav__item" role="menuitem"> <a href="" class="main-nav__link">discord</a> </li>
-                </ul>
-                <button class="login-btn">
-                    <span class="btn-text">log in</span></button>
-            </nav>
+    <header id="header">
+      <div class="container">
+        <div class="nav-expanded">
+          <a href="index.html" class="logo">
+            <img src="images/logo.svg" alt="NFT home page" />
+          </a>
+          <div class="nav-menu" id="burger-menu">
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+          </div>
         </div>
+        <nav class="main-nav">
+          <ul class="main-nav__list" role="menubar">
+            <li class="main-nav__item" role="menuitem">
+              <a href="" class="main-nav__link">about</a>
+            </li>
+            <li class="main-nav__item" role="menuitem">
+              <a href="" class="main-nav__link">project</a>
+            </li>
+            <li class="main-nav__item" role="menuitem">
+              <a href="" class="main-nav__link">marketplace</a>
+            </li>
+            <li class="main-nav__item" role="menuitem">
+              <a href="" class="main-nav__link">governance</a>
+            </li>
+            <li class="main-nav__item" role="menuitem">
+              <a href="" class="main-nav__link">discord</a>
+            </li>
+          </ul>
+          <button class="login-btn">
+            <span class="btn-text">log in</span>
+          </button>
+        </nav>
+      </div>
     </header>
     <!-- End header -->
 
     <!-- Start main -->
     <main>
-        <!-- Start landing section -->
-        <section class="landing">
-            <div class="container">
-                <div class="landing__icons">
-                    <div class="icon-container">
-                        <img src="images/landing_icon1.svg" class="icon" alt="Dollar sign icon">
-                    </div>
-                    <div class="icon-container">
-                        <img src="images/landing_icon2.svg" class="icon" alt="Start icon">
-                    </div>
-                    <div class="icon-container">
-                        <img src="images/landing_icon3.svg" class="icon" alt="Ball icon">
-                    </div>
-                </div>
-                <h1 class="landing__title">
-                    discover <span class="title__different">unique</span> NFT places
-                </h1>
-                <div class="landing__cards  cards-group1">
-                    <div class="landing__card">
-                        <div class="card__image">
-                            <img src="/images/landing_card1.png" alt="">
-                        </div>
-                        <div class="card__body">
-                            <h3 class="card__tite">Anna May</h3>
-                            <h3 class="card__copy">Donated $100</h3>
-                        </div>
-                    </div>
-                    <div class="landing__card">
-                        <div class="card__image">
-                            <img src="/images/landing_card2.png" alt="">
-                        </div>
-                        <div class="card__body">
-                            <h3 class="card__tite">jane holand</h3>
-                            <h3 class="card__copy">Donated $500</h3>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="landing__image">
-                    <img src="/images/landing_img.png" alt="">
-                </div>
-
-                <div class="landing__cards  cards-group2">
-                    <p class="landing__copy">
-                        The Environmental Social Governance (ESG) DAO that rewards contributors for supporting
-                        community.
-                    </p>
-                    <button class="landing__btn">
-                        <span class="btn-text">mint now</span></button>
-                </div>
-
+      <!-- Start landing section -->
+      <section class="landing">
+        <div class="container">
+          <div class="landing__icons">
+            <div class="icon-container">
+              <img
+                src="images/landing_icon1.svg"
+                class="icon"
+                alt="Dollar sign icon"
+              />
             </div>
-        </section>
-        <!-- End landing section -->
+            <div class="icon-container">
+              <img
+                src="images/landing_icon2.svg"
+                class="icon"
+                alt="Start icon"
+              />
+            </div>
+            <div class="icon-container">
+              <img
+                src="images/landing_icon3.svg"
+                class="icon"
+                alt="Ball icon"
+              />
+            </div>
+          </div>
+          <h1 class="landing__title">
+            discover <span class="title__different">unique</span> NFT places
+          </h1>
+          <div class="landing__cards cards-group1">
+            <div class="landing__card">
+              <div class="card__image">
+                <img src="/images/landing_card1.png" alt="" />
+              </div>
+              <div class="card__body">
+                <h3 class="card__tite">Anna May</h3>
+                <h3 class="card__copy">Donated $100</h3>
+              </div>
+            </div>
+            <div class="landing__card">
+              <div class="card__image">
+                <img src="/images/landing_card2.png" alt="" />
+              </div>
+              <div class="card__body">
+                <h3 class="card__tite">jane holand</h3>
+                <h3 class="card__copy">Donated $500</h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="landing__image">
+            <img src="/images/landing_img.png" alt="" />
+          </div>
+
+          <div class="landing__cards cards-group2">
+            <p class="landing__copy">
+              The Environmental Social Governance (ESG) DAO that rewards
+              contributors for supporting community.
+            </p>
+            <button class="landing__btn">
+              <span class="btn-text">mint now</span>
+            </button>
+          </div>
+        </div>
+      </section>
+      <!-- End landing section -->
     </main>
     <!-- End main -->
 
-</body>
-
+    <script src="js/main.js"></script>
+  </body>
 </html>

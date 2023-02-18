@@ -6,8 +6,14 @@
 
 /*Start landing section*/
 .landing {
-    block-size: calc(100vh - 4.5rem);
+    block-size: calc(100vh - 4.8rem);
     position: relative;
+
+    .container {
+        @include breakpoints(md) {
+            margin-block-start: 6rem
+        }
+    }
 
     &::after {
         @include absolute(0, 0, unset, 0);
@@ -59,14 +65,17 @@
         display: flex;
         position: relative;
         z-index: -10;
-        transform-style: preserve-3d;
+        transition: all 6s ease;
 
-        @include breakpoints(small) {
+        @include breakpoints(md) {
             margin: 1rem;
         }
 
         img {
-            @include breakpoints(small) {
+            max-inline-size: 100%;
+            object-fit: contain;
+
+            @include breakpoints(md) {
                 display: none;
             }
         }
@@ -76,6 +85,7 @@
             position: absolute;
             content: "";
             object-fit: contain;
+            transition: all 6s ease;
             animation: translate-sphere 5s linear infinite;
         }
 
@@ -85,7 +95,7 @@
             inset-block-start: -40px;
             inset-inline-start: 28%;
 
-            @include breakpoints(small) {
+            @include breakpoints(md) {
                 inset-block-start: -250px;
                 inset-inline-start: -75px;
             }
@@ -97,17 +107,11 @@
             inset-block-end: 100px;
             inset-inline-end: 18%;
 
-            @include breakpoints(small) {
+            @include breakpoints(md) {
                 inset-block-end: 0px;
                 inset-inline-end: -40px;
             }
         }
-
-        img {
-            max-inline-size: 100%;
-            object-fit: contain;
-        }
-
     }
 
     .landing__cards {
@@ -147,7 +151,7 @@
                 }
             }
 
-            @include breakpoints(small) {
+            @include breakpoints(md) {
                 flex-direction: column;
                 transform: translateY(0);
                 position: inherit;
@@ -168,7 +172,7 @@
                 line-height: 1.6;
                 @include font($mazzard_font, 400, 1.125rem, rgba(0, 0, 0, 0.4));
 
-                @include breakpoints(small) {
+                @include breakpoints(md) {
                     max-inline-size: 100%;
                     font-size: 1rem;
                     text-align: center
@@ -192,7 +196,7 @@
 
                 @include btn-animation;
 
-                @include breakpoints(small) {
+                @include breakpoints(md) {
                     inline-size: 14rem;
                     margin: 1rem auto;
                     inset-inline-end: 0;
@@ -200,13 +204,13 @@
 
             }
 
-            @include breakpoints(small) {
+            @include breakpoints(md) {
                 flex-direction: column;
                 transform: translateY(0);
             }
         }
 
-        @include breakpoints(small) {
+        @include breakpoints(md) {
             flex-direction: column-reverse;
         }
     }
